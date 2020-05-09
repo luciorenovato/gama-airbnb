@@ -68,7 +68,8 @@ body {
   font-style: normal;
   font-weight: 400;
   letter-spacing: 0;
-  padding: 1rem;
+  padding: 0;
+  margin: 0;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -76,7 +77,8 @@ body {
 }
 
 .logo {
-  color: #00f;
+  color: #00a;
+  padding: 10px 10px;
 }
 
 .photo {    
@@ -141,15 +143,15 @@ body {
   flex-direction: row;
   justify-content: space-between;
   background-color: white;
-  display: flex;
-  position: fixed;
+  position: sticky; 
   z-index: 100;
   flex: 1;
   height: 80px;
   width: 100%;
   top: 0;
   left: 0;
-  padding: 0 24px;
+  margin: 0px;
+  padding: 15px;
   box-shadow: rgba(0, 0, 0, 0.18) 0px 1px 2px;
 
 }
@@ -187,7 +189,8 @@ body {
 	color:#000000;
 	font-family:Arial;
 	font-size:16px;
-	padding: 10px 10px 10px 10px;
+  padding: 10px 10px 10px 10px;
+  margin: -5px;
   text-decoration:none;	
   box-shadow: rgba(0, 0, 0, 0.18) 0px 1px 2px;
   flex-wrap: nowrap;
@@ -231,4 +234,35 @@ body {
 #profile_photo {
   border-radius: 50%;
   width: 32px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  border: 1px solid #ddd;
+}
+
+.pagination a.active {
+  background-color: #00a;
+  color: white;
+  border: 1px solid #007;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}
+
+.pagination a:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.pagination a:last-child {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
