@@ -1,52 +1,28 @@
-function createCard(id, photo, type, name, price) {
-	return `<div id="card_${id}" class="card">
-				<img class="photo" src="${photo}" alt="photo">
-				<div id="container_${id}" class="container">
-					<div class="type">${type}</div>
-					<div class="name">${name}</div>
-					<div class="price"><b>R$ ${price}</b>/noite</div>
-				</div>
-			</div>`
+const createItem = (tag, class_name, parent_id, atributes) => {
+	let element = document.createElement(tag);
+	if (class_name !== undefined) element.classList.add(class_name);
+	if (atributes !== undefined) {
+		for (let [key, value] of Object.entries(atributes)) {
+			key == 'textContent' ? element.textContent = value : element.setAttribute(key, value);
+		  }
+	}
+	console.log(`document.getElementById(${parent_id}).appendChild(${element})`);
+	document.getElementById(`${parent_id}`).appendChild(element);
 }
 
-function createCard2(id, photo, type, name, price) {
-/*	
-	var divCard = document.createElement("div");
-	divCard.classList.add("card");
-	divCard.textContent = 'aaa';
-	divCard.id = `card_${id}`;
-	console.log(divCard);
-	document.getElementById('cards').appendChild(divCard);
-
-
-	let imgPhoto = document.createElement("img");
-	imgPhoto.classList.add("photo");
-	imgPhoto.alt = "photo";
-	imgPhoto.src = photo;
-	document.querySelector(`#card_${id}`).appendChild(imgPhoto);
-
-	let divContainer = document.createElement("div");
-	divContainer.id = `container_${id}`;
-	document.querySelector(`#card_${id}`).appendChild(divContainer);
-
-	let divType = document.createElement("div");
-	divType.classList.add("type");
-	divType.textContent = type;
-	document.querySelector(`#container_${id}`).appendChild(divType);
-
-	let divName = document.createElement("div");
-	divName.classList.add("name");
-	divName.textContent = name;
-	document.querySelector(`#container_${id}`).appendChild(divName);
-
-	let divPrice = document.createElement("div");
-	divPrice.classList.add("price");
-	divPrice.textContent = price;
-	document.querySelector(`#container_${id}`).appendChild(divPrice);
-	*/
+const createCard = (property) => {
+	let { photo, property_type, name, price } = property;
+	let id = createId(name);
+	createItem('div', 'card', 'cards', { id: `card_${id}` });
+	createItem('img', 'photo', `card_${id}`, { src: photo });
+	createItem('div', null, `card_${id}`, { id: `container_${id}` });
+	createItem('div', 'property_type', `container_${id}`, { textContent: property_type });
+	createItem('div', 'name', `container_${id}`, { textContent: name });
+	createItem('div', 'price', `container_${id}`, { textContent: `R$ ${price}/noite` });
 }
 
-createId = function(s) {
+// Funcao para criar um id para cada registro
+const createId = (s) => {
 	var id = 0, i, chr;
 	for (i = 0; i < s.length; i++) {
 		chr = s.charCodeAt(i);
@@ -56,17 +32,13 @@ createId = function(s) {
 	return id;
 }
 
-var xhr = new XMLHttpRequest();
-xhr.onload = function () {
-	if (xhr.status >= 200 && xhr.status < 300) {
-        console.log('Success!');
-		var data = JSON.parse(xhr.responseText);		
-		data.forEach(property => {			
-			document.getElementById('cards').innerHTML += createCard(createId(property.name), property.photo, property.property_type, property.name, property.price);
+fetch('https://api.sheety.co/30b6e400-9023-4a15-8e6c-16aa4e3b1e72')
+	.then((response) => {
+		response.json().then((data) => { 			
+			data.forEach(property => {
+				createCard(property);
+			});
 		});
-	} else {
-		console.log('Fail!');
-	}
-};
-xhr.open('GET', 'https://api.sheety.co/30b6e400-9023-4a15-8e6c-16aa4e3b1e72');
-xhr.send();
+	}).catch(error => {
+    	console.log('Fail!');
+	});
