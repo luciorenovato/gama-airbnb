@@ -23,13 +23,12 @@
 .card {
   background-color: white;
   border-radius: 0.25rem;
-  box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
-  display: flex;
-  flex-direction: column;
+  box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);  
+  flex: 1;
   overflow: hidden;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
-  width: 300px;
+  /* width: 300px; */
 }
   
 .cards > div {
@@ -77,12 +76,12 @@ body {
 }
 
 .logo {
-  color: #00a;
-  padding: 10px 10px;
+  color: #6ebf54;
+  padding: 5px 10px;
 }
 
 .photo {    
-  height: 200px;
+  height: 70%; 
   width: 100%;
   vertical-align: middle;  
   background-position: center center;
@@ -250,9 +249,9 @@ body {
 }
 
 .pagination a.active {
-  background-color: #00a;
+  background-color: #6ebf54;
   color: white;
-  border: 1px solid #007;
+  border: 1px solid #6ebf54;
 }
 
 .pagination a:hover:not(.active) {background-color: #ddd;}
