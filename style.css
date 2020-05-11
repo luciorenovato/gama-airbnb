@@ -1,16 +1,8 @@
-@gray-darker:               #444444;
-@gray-dark:                 #696969;
-@gray:                      #999999;
-@gray-light:                #cccccc;
-@gray-lighter:              #ececec;
-@gray-lightest:             lighten(@gray-lighter,4%);
-
 .cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 0;
-  padding: 0;
+  margin: 0;  
   padding: 1rem;
 }
 
@@ -29,12 +21,15 @@
     margin: 0px;
     left: 0px;
   }
+  .logo_gama {
+    width: 10%;
+    height: 32px;
+  }
 
   #map {
     width: 150%;
   }
 }
-
 
 @media (max-width: 800px) {
   .cards {
@@ -57,7 +52,6 @@
   }
 }
 
-
 .card {
   background-color: white;
   border-radius: 0.25rem;
@@ -66,8 +60,12 @@
   overflow: hidden;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
-  height: 400px;
-  /* width: 300px; */
+  height: auto;
+  animation: fadeIn ease 1s;
+  -webkit-animation: fadeIn ease 1s;
+  -moz-animation: fadeIn ease 1s;
+  -o-animation: fadeIn ease 1s;
+  -ms-animation: fadeIn ease 1s;
 }
   
 .cards > div {
@@ -100,18 +98,13 @@ html {
   background-color: #fff;
 }
 
-body {
-  color: @gray;
+body {  
   font-family: 'Roboto','Helvetica Neue', Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   letter-spacing: 0;
   padding: 0;
   margin: 0;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -moz-font-feature-settings: "liga" on;
 }
 
 .logo {
@@ -141,7 +134,8 @@ body {
   align-items: center !important;
   display: inline-flex !important;
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
-  width: 100% !important;
+  
+  border: 1px solid;
 }
 
 .name {
@@ -149,20 +143,20 @@ body {
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
   font-weight: 400 !important;
   color: rgb(34, 34, 34) !important;
-  font-size: 16px !important;
-  line-height: 20px !important;
+  font-size: 20px !important;
+  line-height: 44px !important;
+  white-space: nowrap;
 }
 
 .price {
   flex: 1 1 auto;
   -webkit-box-align: center !important;
   align-items: center !important;
-  color: rgb(34, 34, 34) !important;
+  color: #000;
   display: flex !important;
-  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
-  font-weight: 400 !important;
+  font-weight: bold;
   font-size: 16px !important;
-  line-height: 20px !important;
+  line-height: 32px !important;
 }
 
 .nights {
@@ -172,7 +166,7 @@ body {
   color: rgb(34, 34, 34) !important;
   display: flex !important;
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
-  font-weight: 400 !important;
+  font-weight: bolder;
   font-size: 16px !important;
   line-height: 20px !important;
 }
@@ -262,8 +256,7 @@ body {
   border-width: 1px;
   border-style: solid;
   border-color: rgb(247, 247, 247);
-  box-shadow: rgba(0, 0, 0, 0.18) 0px 1px 2px;
-  transition: 0.2s;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 1px 2px;  
 }
 
 #looking {
@@ -305,3 +298,55 @@ body {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
+
+.foot img {
+  float: right;
+  padding: 10px;  
+  width: 48px;
+  height: 48px;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+}
+
