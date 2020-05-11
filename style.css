@@ -35,6 +35,29 @@
   }
 }
 
+
+@media (max-width: 800px) {
+  .cards {
+    display: block;
+    width: 100%;    
+  }
+
+  #username {
+    display: none;
+  }
+
+  .logo {
+    padding: 0px;
+    margin: 0px;
+    left: 0px;
+  }
+
+  #map {
+    width: 100%;
+  }
+}
+
+
 .card {
   background-color: white;
   border-radius: 0.25rem;
@@ -43,6 +66,7 @@
   overflow: hidden;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
+  height: 400px;
   /* width: 300px; */
 }
   
@@ -141,6 +165,18 @@ body {
   line-height: 20px !important;
 }
 
+.nights {
+  flex: 1 1 auto;
+  -webkit-box-align: center !important;
+  align-items: center !important;
+  color: rgb(34, 34, 34) !important;
+  display: flex !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 16px !important;
+  line-height: 20px !important;
+}
+
 .navbar {
   display: flex;
   flex-direction: row;
@@ -170,7 +206,7 @@ body {
 	font-family:Arial;
 	font-size:14px;
   padding: 16px 16px 0px 16px;
-  margin: 0px;
+  margin: 10px;
   text-decoration:none;
   border-width: 0px;
 }
